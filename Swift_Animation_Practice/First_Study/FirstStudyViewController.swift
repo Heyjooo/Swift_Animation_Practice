@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FirstViewController: UIViewController {
+final class FirstStudyViewController: UIViewController {
     
     let testView : UIView = {
         let view = UIView(frame: CGRect(x: UIScreen.main.bounds.width / 2 - 100, y: UIScreen.main.bounds.height / 4, width: 200, height: 200))
