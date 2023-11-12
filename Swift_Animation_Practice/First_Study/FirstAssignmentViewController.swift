@@ -115,7 +115,7 @@ final class FirstAssignmentViewController: UIViewController {
     // 토스트메세지
     private func showToast() {
         let toastLabel = UILabel()
-        toastLabel.backgroundColor = .systemGray
+        toastLabel.backgroundColor = .black
         toastLabel.textColor = .white
         toastLabel.textAlignment = .center
         toastLabel.font = .systemFont(ofSize: 15)
@@ -152,7 +152,14 @@ final class FirstAssignmentViewController: UIViewController {
     @objc
     private func didExtensionButtonTapped() {
         UIView.animate(withDuration: 1.0) { [self] in
+            // 크기를 3배로 확대
             heartImage.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
+        } completion: { _ in
+            // 애니메이션이 끝난 후에 실행되는 코드
+            UIView.animate(withDuration: 1.0) {
+                // 다시 원래 크기로 돌아가기
+                self.heartImage.transform = .identity
+            }
         }
     }
 }
