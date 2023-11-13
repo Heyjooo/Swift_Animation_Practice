@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = FirstAssignmentViewController()
+        window.rootViewController = SecondStudyViewController()
         window.makeKeyAndVisible()
         self.window = window
     }

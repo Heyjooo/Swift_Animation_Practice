@@ -21,7 +21,7 @@ final class FirstStudyViewController: UIViewController {
         button.titleLabel?.font = .systemFont(ofSize: 17)
         button.titleLabel?.textColor = .white
         button.layer.backgroundColor = UIColor.black.cgColor
-        button.addTarget(self, action: #selector(didMoveTap), for: .touchUpInside)
+        button.addTarget(FirstStudyViewController.self, action: #selector(didMoveTap), for: .touchUpInside)
         return button
     }()
     

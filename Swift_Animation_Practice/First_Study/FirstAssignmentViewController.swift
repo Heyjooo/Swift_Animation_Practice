@@ -26,7 +26,7 @@ final class FirstAssignmentViewController: UIViewController {
         button.titleLabel?.textColor = .white
         button.layer.cornerRadius = 15
         button.layer.backgroundColor = UIColor.systemPink.cgColor
-        button.addTarget(self, action: #selector(didShakeButtonTapped), for: .touchUpInside)
+        button.addTarget(FirstAssignmentViewController.self, action: #selector(didShakeButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -45,7 +45,7 @@ final class FirstAssignmentViewController: UIViewController {
         button.titleLabel?.textColor = .white
         button.layer.cornerRadius = 15
         button.layer.backgroundColor = UIColor.systemPink.cgColor
-        button.addTarget(self, action: #selector(didToastButtonTapped), for: .touchUpInside)
+        button.addTarget(FirstAssignmentViewController.self, action: #selector(didToastButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -70,7 +70,7 @@ final class FirstAssignmentViewController: UIViewController {
         button.titleLabel?.textColor = .white
         button.layer.cornerRadius = 15
         button.layer.backgroundColor = UIColor.systemPink.cgColor
-        button.addTarget(self, action: #selector(didExtensionButtonTapped), for: .touchUpInside)
+        button.addTarget(FirstAssignmentViewController.self, action: #selector(didExtensionButtonTapped), for: .touchUpInside)
         return button
     }()
     
