@@ -64,11 +64,11 @@
 		2A5296A02AFFC6E700279401 /* Swift_Animation_Practice */ = {
 			isa = PBXGroup;
 			children = (
+				2A5296A12AFFC6E700279401 /* AppDelegate.swift */,
+				2A5296A32AFFC6E700279401 /* SceneDelegate.swift */,
 				2A5296B62AFFD6FE00279401 /* Extension */,
 				2A5296B52AFFC79700279401 /* First_Study */,
 				2A5296C02B01D82900279401 /* Second_Study */,
-				2A5296A12AFFC6E700279401 /* AppDelegate.swift */,
-				2A5296A32AFFC6E700279401 /* SceneDelegate.swift */,
 				2A5296AA2AFFC6E800279401 /* Assets.xcassets */,
 				2A5296AC2AFFC6E800279401 /* LaunchScreen.storyboard */,
 				2A5296AF2AFFC6E800279401 /* Info.plist */,
