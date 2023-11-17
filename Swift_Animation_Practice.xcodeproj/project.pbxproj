@@ -17,6 +17,8 @@
 		2A5296BD2AFFDA3500279401 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A5296BC2AFFDA3500279401 /* SnapKit */; };
 		2A5296BF2AFFDA6900279401 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5296BE2AFFDA6900279401 /* UIView+.swift */; };
 		2A5296C22B01D85B00279401 /* SecondStudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5296C12B01D85B00279401 /* SecondStudyViewController.swift */; };
+		2A5297062B06F6FB00279401 /* SecondStudyAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5297052B06F6FB00279401 /* SecondStudyAssignmentViewController.swift */; };
+		2A5297082B0707B500279401 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5297072B0707B500279401 /* UIImage+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		2A5296B92AFFD8B100279401 /* FirstAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAssignmentViewController.swift; sourceTree = "<group>"; };
 		2A5296BE2AFFDA6900279401 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		2A5296C12B01D85B00279401 /* SecondStudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStudyViewController.swift; sourceTree = "<group>"; };
+		2A5297052B06F6FB00279401 /* SecondStudyAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStudyAssignmentViewController.swift; sourceTree = "<group>"; };
+		2A5297072B0707B500279401 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 			children = (
 				2A5296B72AFFD70B00279401 /* UIButton+.swift */,
 				2A5296BE2AFFDA6900279401 /* UIView+.swift */,
+				2A5297072B0707B500279401 /* UIImage+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -98,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				2A5296C12B01D85B00279401 /* SecondStudyViewController.swift */,
+				2A5297052B06F6FB00279401 /* SecondStudyAssignmentViewController.swift */,
 			);
 			path = Second_Study;
 			sourceTree = "<group>";
@@ -179,10 +185,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A5296BF2AFFDA6900279401 /* UIView+.swift in Sources */,
+				2A5297062B06F6FB00279401 /* SecondStudyAssignmentViewController.swift in Sources */,
 				2A5296A62AFFC6E700279401 /* FirstStudyViewController.swift in Sources */,
 				2A5296C22B01D85B00279401 /* SecondStudyViewController.swift in Sources */,
 				2A5296BA2AFFD8B100279401 /* FirstAssignmentViewController.swift in Sources */,
 				2A5296A22AFFC6E700279401 /* AppDelegate.swift in Sources */,
+				2A5297082B0707B500279401 /* UIImage+.swift in Sources */,
 				2A5296A42AFFC6E700279401 /* SceneDelegate.swift in Sources */,
 				2A5296B82AFFD70B00279401 /* UIButton+.swift in Sources */,
 			);

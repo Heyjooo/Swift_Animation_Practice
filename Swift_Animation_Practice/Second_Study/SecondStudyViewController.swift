@@ -11,7 +11,7 @@ import SnapKit
 
 final class SecondStudyViewController: UIViewController {
     
-    let testView : UIView = {
+    let testView: UIView = {
         let view = UIView(frame: CGRect(x: UIScreen.main.bounds.width / 2 - 100, y: UIScreen.main.bounds.height / 2 - 100, width: 200, height: 200))
         view.backgroundColor = .blue
         return view
@@ -66,7 +66,7 @@ final class SecondStudyViewController: UIViewController {
         self.testView.addGestureRecognizer(longPressGesture)
 
         //UIPanGestureRecognizer
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(viewPannd))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(viewPanned))
         self.testView.addGestureRecognizer(panGesture)
     }
     
@@ -129,7 +129,7 @@ final class SecondStudyViewController: UIViewController {
     }
     
     @objc
-    private func viewPannd(gesture: UIPanGestureRecognizer) {
+    private func viewPanned(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: view)
         
         if let viewToMove = gesture.view {
