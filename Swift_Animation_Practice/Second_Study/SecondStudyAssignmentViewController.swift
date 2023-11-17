@@ -10,13 +10,13 @@ import UIKit
 import SnapKit
 
 final class SecondAssignmentViewController: UIViewController {
-    var score: Int = 0
     var timer: Timer? = nil
     var isPause: Bool = true
     var isTopReach: Bool = false
     var isBottomReach: Bool = false
     var isLeadingReach: Bool = false
     var isTrailingReach: Bool = false
+    var time: Double = 0.0
     
     var jjangGuPanGesture: UIPanGestureRecognizer?
     var jjangGuPressGesture: UILongPressGestureRecognizer?
@@ -32,7 +32,7 @@ final class SecondAssignmentViewController: UIViewController {
     private var scoreLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "훈이를 피해라 !!!"
+        label.text = "훈이를 피해서 초코비를 모두 먹자!!!"
         label.font = .systemFont(ofSize: 20)
         label.textColor = .systemCyan
         label.numberOfLines = 2
@@ -46,6 +46,7 @@ final class SecondAssignmentViewController: UIViewController {
 
         setLayout()
         addTarget()
+        createSnacks() // 랜덤한 위치에 5개의 과자 생성
     }
     
     private func addTarget() {
@@ -89,7 +90,7 @@ final class SecondAssignmentViewController: UIViewController {
     // 시간 측정
     private func startTimer() {
         guard timer == nil else { return }
-        scoreLabel.text = "훈이를 피해라 !!!"
+        scoreLabel.text = "초코비 냠냠"
         self.timer = Timer.scheduledTimer(timeInterval: 0.1,
                                           target: self,
                                           selector: #selector(self.moveHuni),
@@ -100,7 +101,7 @@ final class SecondAssignmentViewController: UIViewController {
     private func stopTimer() {
         timer?.invalidate()
         timer = nil
-        score = 0
+        time = 0
         // 타이머 끝나면 원래 이미지로 돌려놓기
         leadingHuni.image =  UIImage(named: "huni")?.imageFlippedHorizontally()
         trailingHuni.image = UIImage(named: "huni")
@@ -113,37 +114,32 @@ final class SecondAssignmentViewController: UIViewController {
                               bottomHuni,
                               leadingHuni,
                               trailingHuni)
-        
-        // 글씨에 가려지지 않게 짱구와 훈이를 view의 맨 앞으로
-        self.view.bringSubviewToFront(jjangGu)
-        self.view.bringSubviewToFront(topHuni)
-        self.view.bringSubviewToFront(bottomHuni)
 
         jjangGu.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
-            $0.size.equalTo(90)
+            $0.size.equalTo(100)
         }
         
         topHuni.snp.makeConstraints {
             $0.top.equalTo(self.view.safeAreaLayoutGuide)
             $0.centerX.equalToSuperview()
-            $0.size.equalTo(50)
+            $0.size.equalTo(60)
         }
         
         leadingHuni.snp.makeConstraints {
             $0.leading.centerY.equalToSuperview().inset(3)
-            $0.size.equalTo(50)
+            $0.size.equalTo(60)
         }
         
         trailingHuni.snp.makeConstraints {
             $0.trailing.centerY.equalToSuperview().inset(3)
-            $0.size.equalTo(50)
+            $0.size.equalTo(60)
         }
         
         bottomHuni.snp.makeConstraints {
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide)
             $0.centerX.equalToSuperview()
-            $0.size.equalTo(50)
+            $0.size.equalTo(60)
         }
         
         scoreLabel.snp.makeConstraints {
@@ -250,33 +246,40 @@ final class SecondAssignmentViewController: UIViewController {
         // topHuni와의 충돌 감지
         let distanceToTopHuni = calculateDistanceBetweenViews(jjangGu, topHuni)
         if distanceToTopHuni <= collisionDistance {
-            endGame()
+            endGame(success: false)
             return
         }
 
         // leadingHuni와의 충돌 감지
         let distanceToLeadingHuni = calculateDistanceBetweenViews(jjangGu, leadingHuni)
         if distanceToLeadingHuni <= collisionDistance {
-            endGame()
+            endGame(success: false)
             return
         }
 
         // trailingHuni와의 충돌 감지
         let distanceToTrailingHuni = calculateDistanceBetweenViews(jjangGu, trailingHuni)
         if distanceToTrailingHuni <= collisionDistance {
-            endGame()
+            endGame(success: false)
             return
         }
 
         // bottomHuni와의 충돌 감지
         let distanceToBottomHuni = calculateDistanceBetweenViews(jjangGu, bottomHuni)
         if distanceToBottomHuni <= collisionDistance {
-            endGame()
+            endGame(success: false)
             return
         }
-
-        // 충돌이 없을 경우
-        score += 10
+        
+        // 과자먹기
+        for snack in self.view.subviews.filter({ $0 is UIImageView && $0 != jjangGu }) {
+            let distanceToSnack = calculateDistanceBetweenViews(jjangGu, snack)
+            if distanceToSnack <= collisionDistance {
+                eatSnack(snack)
+            }
+        }
+        
+        time += 1.0
     }
 
     // 두 뷰 간의 거리를 측정하는 함수
@@ -288,8 +291,42 @@ final class SecondAssignmentViewController: UIViewController {
         return sqrt(dx*dx + dy*dy)
     }
     
+    // 초코비 생성
+    private func createSnacks() {
+        for _ in 0..<5 {
+            let snack = UIImageView(image: UIImage(named: "snack"))
+            snack.frame.size = CGSize(width: 30, height: 40)
+            snack.center = randomPointInBounds()
+            self.view.addSubview(snack)
+        }
+        
+        // 점수와 초코비에 가려지지 않게 짱구와 훈이를 view의 맨 앞으로
+        self.view.bringSubviewToFront(scoreLabel)
+        self.view.bringSubviewToFront(jjangGu)
+        self.view.bringSubviewToFront(topHuni)
+        self.view.bringSubviewToFront(bottomHuni)
+        self.view.bringSubviewToFront(leadingHuni)
+        self.view.bringSubviewToFront(trailingHuni)
+    }
+    
+    private func randomPointInBounds() -> CGPoint {
+        let randomX = CGFloat.random(in: 10...(UIScreen.main.bounds.width - 10))
+        let randomY = CGFloat.random(in: 200...(UIScreen.main.bounds.height - 30))
+        return CGPoint(x: randomX, y: randomY)
+    }
+    
+    private func eatSnack(_ snack: UIView) {
+        snack.isHidden = true
+        let hiddenSnackCount = self.view.subviews.filter { $0 is UIImageView && $0.isHidden }.count
+
+        // 다 먹은 경우
+        if hiddenSnackCount == 5 {
+            endGame(success: true)
+        }
+    }
+    
     // 게임 종료 함수
-    private func endGame() {
+    private func endGame(success: Bool) {
         // Press gesture 제거
         if let pressGesture = jjangGuPressGesture {
             jjangGu.removeGestureRecognizer(pressGesture)
@@ -302,13 +339,22 @@ final class SecondAssignmentViewController: UIViewController {
             jjangGuPanGesture = nil
         }
         
-    
-        scoreLabel.text = "잡혀버렸어..\nScore : \(score)점"
+        for snack in self.view.subviews.filter({ $0 is UIImageView && $0 != jjangGu && $0 != topHuni && $0 != bottomHuni && $0 != leadingHuni && $0 != trailingHuni  }) {
+            snack.removeFromSuperview()
+        }
+        
+        let successTiem = time / 10.0
+        if success {
+            scoreLabel.text = "다 먹었다 !!! \(successTiem)초만에 성공했어 !!!"
+        } else {
+            scoreLabel.text = "잡혀버렸어..\n다시 도전하자 !!!"
+        }
         stopTimer()
         
         // Gesture 다시 추가
         addTarget()
         isPause = true
+        createSnacks() // 랜덤한 위치에 5개의 과자 다시 생성
     }
 
 }
