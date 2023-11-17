@@ -151,6 +151,7 @@ final class SecondAssignmentViewController: UIViewController {
     @objc
     private func moveHuni() {
         var topHuniY = self.topHuni.frame.origin.y
+        // topHuni가 벽에 닿았는지 안닿았는지 확인
         if topHuniY > UIScreen.main.bounds.height - 50 {
             isTopReach = true
         }
@@ -158,6 +159,7 @@ final class SecondAssignmentViewController: UIViewController {
             isTopReach = false
         }
         
+        // 벽에 닿았는지 안닿았는지에 따라 위치 조정
         if isTopReach {
             topHuniY -= 10
         } else {
@@ -169,6 +171,7 @@ final class SecondAssignmentViewController: UIViewController {
                                     size: self.topHuni.frame.size)
         
         var bottomHuniY = self.bottomHuni.frame.origin.y
+        // bottomHuni가 벽에 닿았는지 안닿았는지 확인
         if bottomHuniY < 50 {
             isBottomReach = true
         }
@@ -176,6 +179,7 @@ final class SecondAssignmentViewController: UIViewController {
             isBottomReach = false
         }
         
+        // 벽에 닿았는지 안닿았는지에 따라 위치 조정
         if isBottomReach {
             bottomHuniY += 10
         } else {
@@ -186,6 +190,7 @@ final class SecondAssignmentViewController: UIViewController {
                                        size: self.bottomHuni.frame.size)
         
         var leftHuniX = self.leadingHuni.frame.origin.x
+        // leadingHuni가 벽에 닿았는지 안닿았는지 확인
         if leftHuniX > UIScreen.main.bounds.width - 50 {
             isLeadingReach = true
             leadingHuni.image = leadingHuni.image?.imageFlippedHorizontally()
@@ -195,6 +200,7 @@ final class SecondAssignmentViewController: UIViewController {
             leadingHuni.image = leadingHuni.image?.imageFlippedHorizontally()
         }
         
+        // 벽에 닿았는지 안닿았는지에 따라 위치 조정
         if isLeadingReach {
             leftHuniX -= 10
         } else {
@@ -205,6 +211,7 @@ final class SecondAssignmentViewController: UIViewController {
                                         size: self.leadingHuni.frame.size)
         
         var rightHuniX = self.trailingHuni.frame.origin.x
+        // trailingHuni가 벽에 닿았는지 안닿았는지 확인
         if rightHuniX < 0 {
             isTrailingReach = true
             trailingHuni.image = trailingHuni.image?.imageFlippedHorizontally()
@@ -214,6 +221,7 @@ final class SecondAssignmentViewController: UIViewController {
             trailingHuni.image = trailingHuni.image?.imageFlippedHorizontally()
         }
         
+        // 벽에 닿았는지 안닿았는지에 따라 위치 조정
         if isTrailingReach {
             rightHuniX += 10
         } else {
@@ -223,6 +231,7 @@ final class SecondAssignmentViewController: UIViewController {
         self.trailingHuni.frame = .init(origin: .init(x: rightHuniX,
                                                        y: self.trailingHuni.frame.origin.y),
                                          size: self.trailingHuni.frame.size)
+        // 거리 계산
         self.calculatePositionReached()
     }
     
