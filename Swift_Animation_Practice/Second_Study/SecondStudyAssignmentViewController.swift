@@ -33,7 +33,7 @@ final class SecondAssignmentViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "훈이를 피해라 !!!"
-        label.font = UIFont(name: "Korail-Round-Gothic-Light", size: 25)
+        label.font = .systemFont(ofSize: 20)
         label.textColor = .systemCyan
         label.numberOfLines = 2
         return label
@@ -69,7 +69,6 @@ final class SecondAssignmentViewController: UIViewController {
     private func viewPressed(gesture : UILongPressGestureRecognizer) {
         if isPause {
             isPause = false
-            scoreLabel.text = "게임시작 !!!"
             startTimer()
         }
     }
@@ -90,6 +89,7 @@ final class SecondAssignmentViewController: UIViewController {
     // 시간 측정
     private func startTimer() {
         guard timer == nil else { return }
+        scoreLabel.text = "훈이를 피해라 !!!"
         self.timer = Timer.scheduledTimer(timeInterval: 0.1,
                                           target: self,
                                           selector: #selector(self.moveHuni),
@@ -114,6 +114,11 @@ final class SecondAssignmentViewController: UIViewController {
                               leadingHuni,
                               trailingHuni)
         
+        // 글씨에 가려지지 않게 짱구와 훈이를 view의 맨 앞으로
+        self.view.bringSubviewToFront(jjangGu)
+        self.view.bringSubviewToFront(topHuni)
+        self.view.bringSubviewToFront(bottomHuni)
+
         jjangGu.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
             $0.size.equalTo(90)
@@ -143,7 +148,7 @@ final class SecondAssignmentViewController: UIViewController {
         
         scoreLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(self.view.safeAreaLayoutGuide).inset(50)
+            $0.top.equalTo(self.view.safeAreaLayoutGuide).inset(70)
         }
     }
     
@@ -162,8 +167,10 @@ final class SecondAssignmentViewController: UIViewController {
         // 벽에 닿았는지 안닿았는지에 따라 위치 조정
         if isTopReach {
             topHuniY -= 10
+            topHuni.image = topHuni.image?.imageFlippedHorizontally()
         } else {
             topHuniY += 10
+            topHuni.image = topHuni.image?.imageFlippedHorizontally()
         }
         
         self.topHuni.frame = .init(origin: .init(x: self.topHuni.frame.origin.x,
@@ -182,8 +189,10 @@ final class SecondAssignmentViewController: UIViewController {
         // 벽에 닿았는지 안닿았는지에 따라 위치 조정
         if isBottomReach {
             bottomHuniY += 10
+            bottomHuni.image = bottomHuni.image?.imageFlippedHorizontally()
         } else {
             bottomHuniY -= 10
+            bottomHuni.image = bottomHuni.image?.imageFlippedHorizontally()
         }
         
         self.bottomHuni.frame = .init(origin: .init(x: self.bottomHuni.frame.origin.x, y: bottomHuniY),
@@ -193,18 +202,18 @@ final class SecondAssignmentViewController: UIViewController {
         // leadingHuni가 벽에 닿았는지 안닿았는지 확인
         if leftHuniX > UIScreen.main.bounds.width - 50 {
             isLeadingReach = true
-            leadingHuni.image = leadingHuni.image?.imageFlippedHorizontally()
         }
         if leftHuniX < 0 {
             isLeadingReach = false
-            leadingHuni.image = leadingHuni.image?.imageFlippedHorizontally()
         }
         
         // 벽에 닿았는지 안닿았는지에 따라 위치 조정
         if isLeadingReach {
             leftHuniX -= 10
+            leadingHuni.image = leadingHuni.image?.imageFlippedHorizontally()
         } else {
             leftHuniX += 10
+            leadingHuni.image = leadingHuni.image?.imageFlippedHorizontally()
         }
         
         self.leadingHuni.frame = .init(origin: .init(x: leftHuniX, y: self.leadingHuni.frame.origin.y),
@@ -214,18 +223,18 @@ final class SecondAssignmentViewController: UIViewController {
         // trailingHuni가 벽에 닿았는지 안닿았는지 확인
         if rightHuniX < 0 {
             isTrailingReach = true
-            trailingHuni.image = trailingHuni.image?.imageFlippedHorizontally()
         }
         if rightHuniX > UIScreen.main.bounds.width - 50 {
             isTrailingReach = false
-            trailingHuni.image = trailingHuni.image?.imageFlippedHorizontally()
         }
         
         // 벽에 닿았는지 안닿았는지에 따라 위치 조정
         if isTrailingReach {
             rightHuniX += 10
+            trailingHuni.image = trailingHuni.image?.imageFlippedHorizontally()
         } else {
             rightHuniX -= 10
+            trailingHuni.image = trailingHuni.image?.imageFlippedHorizontally()
         }
         
         self.trailingHuni.frame = .init(origin: .init(x: rightHuniX,
@@ -294,7 +303,7 @@ final class SecondAssignmentViewController: UIViewController {
         }
         
     
-        scoreLabel.text = "끝났어..\nScore : \(score)점"
+        scoreLabel.text = "잡혀버렸어..\nScore : \(score)점"
         stopTimer()
         
         // Gesture 다시 추가
