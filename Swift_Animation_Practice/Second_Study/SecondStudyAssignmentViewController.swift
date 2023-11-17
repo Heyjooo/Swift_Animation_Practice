@@ -13,6 +13,11 @@ final class SecondAssignmentViewController: UIViewController {
     var score: Int = 0
     var timer: Timer? = nil
     var isPause: Bool = true
+    var isTopReach: Bool = false
+    var isBottomReach: Bool = false
+    var isLeadingReach: Bool = false
+    var isTrailingReach: Bool = false
+    
     var jjangGuPanGesture: UIPanGestureRecognizer?
     var jjangGuPressGesture: UILongPressGestureRecognizer?
 
@@ -85,7 +90,7 @@ final class SecondAssignmentViewController: UIViewController {
     // 시간 측정
     private func startTimer() {
         guard timer == nil else { return }
-        self.timer = Timer.scheduledTimer(timeInterval: 0.3,
+        self.timer = Timer.scheduledTimer(timeInterval: 0.1,
                                           target: self,
                                           selector: #selector(self.moveHuni),
                                           userInfo: nil,
@@ -95,6 +100,10 @@ final class SecondAssignmentViewController: UIViewController {
     private func stopTimer() {
         timer?.invalidate()
         timer = nil
+        score = 0
+        // 타이머 끝나면 원래 이미지로 돌려놓기
+        leadingHuni.image =  UIImage(named: "huni")?.imageFlippedHorizontally()
+        trailingHuni.image = UIImage(named: "huni")
     }
     
     private func setLayout() {
@@ -142,23 +151,75 @@ final class SecondAssignmentViewController: UIViewController {
     @objc
     private func moveHuni() {
         var topHuniY = self.topHuni.frame.origin.y
-        topHuniY += 10
+        if topHuniY > UIScreen.main.bounds.height - 50 {
+            isTopReach = true
+        }
+        if topHuniY < 50 {
+            isTopReach = false
+        }
+        
+        if isTopReach {
+            topHuniY -= 10
+        } else {
+            topHuniY += 10
+        }
+        
         self.topHuni.frame = .init(origin: .init(x: self.topHuni.frame.origin.x,
                                                   y: topHuniY),
                                     size: self.topHuni.frame.size)
         
         var bottomHuniY = self.bottomHuni.frame.origin.y
-        bottomHuniY -= 10
+        if bottomHuniY < 50 {
+            isBottomReach = true
+        }
+        if bottomHuniY > UIScreen.main.bounds.height - 50 {
+            isBottomReach = false
+        }
+        
+        if isBottomReach {
+            bottomHuniY += 10
+        } else {
+            bottomHuniY -= 10
+        }
+        
         self.bottomHuni.frame = .init(origin: .init(x: self.bottomHuni.frame.origin.x, y: bottomHuniY),
                                        size: self.bottomHuni.frame.size)
         
         var leftHuniX = self.leadingHuni.frame.origin.x
-        leftHuniX += 10
+        if leftHuniX > UIScreen.main.bounds.width - 50 {
+            isLeadingReach = true
+            leadingHuni.image = leadingHuni.image?.imageFlippedHorizontally()
+        }
+        if leftHuniX < 0 {
+            isLeadingReach = false
+            leadingHuni.image = leadingHuni.image?.imageFlippedHorizontally()
+        }
+        
+        if isLeadingReach {
+            leftHuniX -= 10
+        } else {
+            leftHuniX += 10
+        }
+        
         self.leadingHuni.frame = .init(origin: .init(x: leftHuniX, y: self.leadingHuni.frame.origin.y),
                                         size: self.leadingHuni.frame.size)
         
         var rightHuniX = self.trailingHuni.frame.origin.x
-        rightHuniX -= 10
+        if rightHuniX < 0 {
+            isTrailingReach = true
+            trailingHuni.image = trailingHuni.image?.imageFlippedHorizontally()
+        }
+        if rightHuniX > UIScreen.main.bounds.width - 50 {
+            isTrailingReach = false
+            trailingHuni.image = trailingHuni.image?.imageFlippedHorizontally()
+        }
+        
+        if isTrailingReach {
+            rightHuniX += 10
+        } else {
+            rightHuniX -= 10
+        }
+        
         self.trailingHuni.frame = .init(origin: .init(x: rightHuniX,
                                                        y: self.trailingHuni.frame.origin.y),
                                          size: self.trailingHuni.frame.size)
@@ -211,22 +272,23 @@ final class SecondAssignmentViewController: UIViewController {
     
     // 게임 종료 함수
     private func endGame() {
-        // Pan gesture 제거
-        if let panGesture = jjangGuPanGesture {
-            jjangGu.removeGestureRecognizer(panGesture)
-            jjangGuPanGesture = nil
-        }
-        
         // Press gesture 제거
         if let pressGesture = jjangGuPressGesture {
             jjangGu.removeGestureRecognizer(pressGesture)
             jjangGuPressGesture = nil
         }
         
+        // Pan gesture 제거
+        if let panGesture = jjangGuPanGesture {
+            jjangGu.removeGestureRecognizer(panGesture)
+            jjangGuPanGesture = nil
+        }
+        
+    
         scoreLabel.text = "끝났어..\nScore : \(score)점"
         stopTimer()
         
-        // PanGesture 다시 추가
+        // Gesture 다시 추가
         addTarget()
         isPause = true
     }
