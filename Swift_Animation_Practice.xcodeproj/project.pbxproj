@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A44921C2B10505700F6D9D4 /* CountDownProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44921B2B10505700F6D9D4 /* CountDownProgressBar.swift */; };
 		2A5296A22AFFC6E700279401 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5296A12AFFC6E700279401 /* AppDelegate.swift */; };
 		2A5296A42AFFC6E700279401 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5296A32AFFC6E700279401 /* SceneDelegate.swift */; };
 		2A5296A62AFFC6E700279401 /* FirstStudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5296A52AFFC6E700279401 /* FirstStudyViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A44921B2B10505700F6D9D4 /* CountDownProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownProgressBar.swift; sourceTree = "<group>"; };
 		2A52969E2AFFC6E700279401 /* Swift_Animation_Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swift_Animation_Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A5296A12AFFC6E700279401 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A5296A32AFFC6E700279401 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				2AA327C32B0B84AE00732CE9 /* ThirdStudyViewController.swift */,
+				2A44921B2B10505700F6D9D4 /* CountDownProgressBar.swift */,
 			);
 			path = Third_Study;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A44921C2B10505700F6D9D4 /* CountDownProgressBar.swift in Sources */,
 				2A5296BF2AFFDA6900279401 /* UIView+.swift in Sources */,
 				2A5297062B06F6FB00279401 /* SecondStudyAssignmentViewController.swift in Sources */,
 				2A5296A62AFFC6E700279401 /* FirstStudyViewController.swift in Sources */,
