@@ -19,6 +19,7 @@
 		2A5296C22B01D85B00279401 /* SecondStudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5296C12B01D85B00279401 /* SecondStudyViewController.swift */; };
 		2A5297062B06F6FB00279401 /* SecondStudyAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5297052B06F6FB00279401 /* SecondStudyAssignmentViewController.swift */; };
 		2A5297082B0707B500279401 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5297072B0707B500279401 /* UIImage+.swift */; };
+		2AA327C42B0B84AE00732CE9 /* ThirdStudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA327C32B0B84AE00732CE9 /* ThirdStudyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		2A5296C12B01D85B00279401 /* SecondStudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStudyViewController.swift; sourceTree = "<group>"; };
 		2A5297052B06F6FB00279401 /* SecondStudyAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStudyAssignmentViewController.swift; sourceTree = "<group>"; };
 		2A5297072B0707B500279401 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		2AA327C32B0B84AE00732CE9 /* ThirdStudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdStudyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				2A5296B62AFFD6FE00279401 /* Extension */,
 				2A5296B52AFFC79700279401 /* First_Study */,
 				2A5296C02B01D82900279401 /* Second_Study */,
+				2AA327C22B0B849400732CE9 /* Third_Study */,
 				2A5296AA2AFFC6E800279401 /* Assets.xcassets */,
 				2A5296AC2AFFC6E800279401 /* LaunchScreen.storyboard */,
 				2A5296AF2AFFC6E800279401 /* Info.plist */,
@@ -106,6 +109,14 @@
 				2A5297052B06F6FB00279401 /* SecondStudyAssignmentViewController.swift */,
 			);
 			path = Second_Study;
+			sourceTree = "<group>";
+		};
+		2AA327C22B0B849400732CE9 /* Third_Study */ = {
+			isa = PBXGroup;
+			children = (
+				2AA327C32B0B84AE00732CE9 /* ThirdStudyViewController.swift */,
+			);
+			path = Third_Study;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +201,7 @@
 				2A5296C22B01D85B00279401 /* SecondStudyViewController.swift in Sources */,
 				2A5296BA2AFFD8B100279401 /* FirstAssignmentViewController.swift in Sources */,
 				2A5296A22AFFC6E700279401 /* AppDelegate.swift in Sources */,
+				2AA327C42B0B84AE00732CE9 /* ThirdStudyViewController.swift in Sources */,
 				2A5297082B0707B500279401 /* UIImage+.swift in Sources */,
 				2A5296A42AFFC6E700279401 /* SceneDelegate.swift in Sources */,
 				2A5296B82AFFD70B00279401 /* UIButton+.swift in Sources */,
