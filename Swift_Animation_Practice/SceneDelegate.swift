@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = Transform3DViewController()
+        window.rootViewController = EmitterViewController()
         window.makeKeyAndVisible()
         self.window = window
     }

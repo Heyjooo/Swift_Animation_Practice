@@ -22,6 +22,7 @@
 		2A5297062B06F6FB00279401 /* SecondStudyAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5297052B06F6FB00279401 /* SecondStudyAssignmentViewController.swift */; };
 		2A5297082B0707B500279401 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5297072B0707B500279401 /* UIImage+.swift */; };
 		2AA327C42B0B84AE00732CE9 /* ThirdStudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA327C32B0B84AE00732CE9 /* ThirdStudyViewController.swift */; };
+		2AC74E262B203A4B00B60D6C /* EmitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC74E252B203A4B00B60D6C /* EmitterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		2A5297052B06F6FB00279401 /* SecondStudyAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStudyAssignmentViewController.swift; sourceTree = "<group>"; };
 		2A5297072B0707B500279401 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		2AA327C32B0B84AE00732CE9 /* ThirdStudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdStudyViewController.swift; sourceTree = "<group>"; };
+		2AC74E252B203A4B00B60D6C /* EmitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,14 @@
 			path = Fourth_Study;
 			sourceTree = "<group>";
 		};
+		2A2EB00B2B1D9B6E002D3800 /* Fifth_Study */ = {
+			isa = PBXGroup;
+			children = (
+				2AC74E252B203A4B00B60D6C /* EmitterViewController.swift */,
+			);
+			path = Fifth_Study;
+			sourceTree = "<group>";
+		};
 		2A5296952AFFC6E700279401 = {
 			isa = PBXGroup;
 			children = (
@@ -82,13 +92,14 @@
 		2A5296A02AFFC6E700279401 /* Swift_Animation_Practice */ = {
 			isa = PBXGroup;
 			children = (
-				2A2EAFDB2B170356002D3800 /* Fourth_Study */,
 				2A5296A12AFFC6E700279401 /* AppDelegate.swift */,
 				2A5296A32AFFC6E700279401 /* SceneDelegate.swift */,
 				2A5296B62AFFD6FE00279401 /* Extension */,
 				2A5296B52AFFC79700279401 /* First_Study */,
 				2A5296C02B01D82900279401 /* Second_Study */,
 				2AA327C22B0B849400732CE9 /* Third_Study */,
+				2A2EAFDB2B170356002D3800 /* Fourth_Study */,
+				2A2EB00B2B1D9B6E002D3800 /* Fifth_Study */,
 				2A5296AA2AFFC6E800279401 /* Assets.xcassets */,
 				2A5296AC2AFFC6E800279401 /* LaunchScreen.storyboard */,
 				2A5296AF2AFFC6E800279401 /* Info.plist */,
@@ -218,6 +229,7 @@
 				2A5296A22AFFC6E700279401 /* AppDelegate.swift in Sources */,
 				2A2EAFDD2B170367002D3800 /* Transform3DViewController.swift in Sources */,
 				2AA327C42B0B84AE00732CE9 /* ThirdStudyViewController.swift in Sources */,
+				2AC74E262B203A4B00B60D6C /* EmitterViewController.swift in Sources */,
 				2A5297082B0707B500279401 /* UIImage+.swift in Sources */,
 				2A5296A42AFFC6E700279401 /* SceneDelegate.swift in Sources */,
 				2A5296B82AFFD70B00279401 /* UIButton+.swift in Sources */,
