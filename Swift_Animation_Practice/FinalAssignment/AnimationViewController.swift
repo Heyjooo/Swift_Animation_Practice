@@ -30,6 +30,7 @@ final class AnimationViewController: UIViewController {
     private let nextButton: UIButton = {
         let button = UIButton()
         button.setTitle("다음", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 15
