@@ -13,6 +13,7 @@
 		2A0ED7692B35D33300593920 /* money.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A0ED7652B35D33300593920 /* money.json */; };
 		2A0ED76A2B35D33300593920 /* pig.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A0ED7662B35D33300593920 /* pig.json */; };
 		2A0ED76B2B35D33300593920 /* cash.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A0ED7672B35D33300593920 /* cash.json */; };
+		2A0ED76E2B35E33B00593920 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2A0ED76D2B35E33B00593920 /* Lottie */; };
 		2A2EAFDD2B170367002D3800 /* Transform3DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2EAFDC2B170367002D3800 /* Transform3DViewController.swift */; };
 		2A44921C2B10505700F6D9D4 /* CountDownProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44921B2B10505700F6D9D4 /* CountDownProgressBar.swift */; };
 		2A5296A22AFFC6E700279401 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5296A12AFFC6E700279401 /* AppDelegate.swift */; };
@@ -63,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A5296BD2AFFDA3500279401 /* SnapKit in Frameworks */,
+				2A0ED76E2B35E33B00593920 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +190,7 @@
 			name = Swift_Animation_Practice;
 			packageProductDependencies = (
 				2A5296BC2AFFDA3500279401 /* SnapKit */,
+				2A0ED76D2B35E33B00593920 /* Lottie */,
 			);
 			productName = Swift_Animation_Practice;
 			productReference = 2A52969E2AFFC6E700279401 /* Swift_Animation_Practice.app */;
@@ -219,6 +222,7 @@
 			mainGroup = 2A5296952AFFC6E700279401;
 			packageReferences = (
 				2A5296BB2AFFDA3500279401 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				2A0ED76C2B35E33B00593920 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 2A52969F2AFFC6E700279401 /* Products */;
 			projectDirPath = "";
@@ -480,6 +484,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2A0ED76C2B35E33B00593920 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		2A5296BB2AFFDA3500279401 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -491,6 +503,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2A0ED76D2B35E33B00593920 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A0ED76C2B35E33B00593920 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		2A5296BC2AFFDA3500279401 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2A5296BB2AFFDA3500279401 /* XCRemoteSwiftPackageReference "SnapKit" */;

@@ -6,15 +6,18 @@
 //
 
 import UIKit
+
+import Lottie
 import SnapKit
 
 final class AnimationViewController: UIViewController {
     
-    var timer: Timer?
-    var progressViews: [UIProgressView] = []
-    var currentIndex: Int = 0
+    private var timer: Timer?
+    private var progressViews: [UIProgressView] = []
+    private var currentIndex: Int = 0
     private let mainStrings: [String] = [Strings.mainString.first, Strings.mainString.second, Strings.mainString.third, Strings.mainString.fourth]
     private let subStrings: [String] = [Strings.subString.first, Strings.subString.second, Strings.subString.third, Strings.subString.fourth]
+    private var animationView = LottieAnimationView()
     
     private let progressStackView: UIStackView = {
         let stackView = UIStackView()
@@ -55,6 +58,11 @@ final class AnimationViewController: UIViewController {
         setStyle()
         setLayout()
         setTimer()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setAnimationView(name: "cash", speed: 1.2, width: 280, height: 280)
     }
     
     private func setStyle() {
@@ -111,6 +119,25 @@ final class AnimationViewController: UIViewController {
         }
     }
     
+    private func setAnimationView(name: String, speed: Double, width: CGFloat, height: CGFloat) {
+        animationView = .init(name: name)
+        let animationWidth: CGFloat = width
+        let animationHeight: CGFloat = height
+        animationView.frame = CGRect(x: 0, y: 0, width: animationWidth, height: animationHeight)
+        
+        animationView.contentMode = .scaleAspectFill
+        animationView.loopMode = .loop
+        animationView.animationSpeed = speed
+        
+        let centerX = view.bounds.midX
+        let centerY = view.bounds.midY + 30
+        
+        animationView.center = CGPoint(x: centerX, y: centerY)
+        
+        animationView.play()
+        view.addSubview(animationView)
+    }
+    
     @objc
     private func setProgress() {
         let duration: Float = 3.0
@@ -141,6 +168,20 @@ final class AnimationViewController: UIViewController {
                 mainString.alpha = 0.0
                 subString.alpha = 0.0
                 fadeInTextAnimation()
+            }
+            
+            if currentIndex == 0 {
+                animationView.removeFromSuperview()
+                setAnimationView(name: "cash", speed: 1.2, width: 280, height: 280)
+            } else if currentIndex == 1 {
+                animationView.removeFromSuperview()
+                setAnimationView(name: "pig", speed: 1.0, width: 350, height: 330)
+            } else if currentIndex == 2 {
+                animationView.removeFromSuperview()
+                setAnimationView(name: "card", speed: 0.3, width: 280, height: 280)
+            } else if currentIndex == 3 {
+                animationView.removeFromSuperview()
+                setAnimationView(name: "money", speed: 0.9, width: 280, height: 280)
             }
         }
     }
